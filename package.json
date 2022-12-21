@@ -1,0 +1,18 @@
+{
+  "name": "playwright",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test tests/ClientApp.spec.ts --headed",
+    "test:reporter": "npx playwright test tests/fwkTesting.spec.ts --headed --reporter=allure-playwright",
+    "allure-report": "npx ./allure generate ./allure-results && allure open"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.29",
+    "allure-playwright": "^2.0.0-beta.20"
+  }
+}
