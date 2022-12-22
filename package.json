@@ -8,6 +8,10 @@
     "test:reporter": "npx playwright test tests/fwkTesting.spec.ts --headed --reporter=allure-playwright",
     "allure-report": "npx ./allure generate ./allure-results && allure open"
   },
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/jagota-s/playwright-typescript-pom"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

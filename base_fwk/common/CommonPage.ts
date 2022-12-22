@@ -10,11 +10,6 @@ export class CommonPage {
     constructor(page, scenario) {
         this.page = page;
         this.scenario = scenario;
-        this.commonPageCall("commonPage Constructor")
-    }
-
-    async commonPageCall(calledFrom: string) {
-        console.log("In common page method called from " + calledFrom)
     }
 
     public getValue(key: string) {

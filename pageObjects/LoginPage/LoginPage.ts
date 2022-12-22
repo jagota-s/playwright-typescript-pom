@@ -1,4 +1,4 @@
-import { Page } from "@playwright/test";
+import { expect, Page, } from "@playwright/test";
 import { CommonPage } from "../../base_fwk/common/CommonPage";
 import { CommonScenario } from "../../base_fwk/common/CommonScenario";
 import test from "../../base_fwk/fixtures/baseTest"

@@ -7,17 +7,21 @@ import { testConfig } from "./testConfig";
 
 test.describe('two tests', () => {
   console.log("in describe from spec file");
-  test("first playwright test12", async ({ page, loginPage, dashboardPage, cartPage, ordersReviewPage, ordersHistoryPage }) => {
+  test("first playwright test12", async ({ page, context, browser, loginPage, dashboardPage, cartPage, ordersReviewPage, ordersHistoryPage }) => {
     // test("first playwright test12", async ({ }) => {
     // test("first playwright test12", async ({ page }) => {
-    console.log("test s")
+    console.log("test start")
+    // await page.goto('https://example.com');
     await loginPage.goTo();
-    await loginPage.validLogin(testConfig.username, testConfig.password);
-    //await dashboardPage.
-    await dashboardPage.testDashboard();
-    await cartPage.testCartPage();
-    await ordersHistoryPage.testOrdersHistory();
-    await ordersReviewPage.testOrdersReviewPage();
+
+    console.log("test ends")
+
+    // await loginPage.validLogin(testConfig.username, testConfig.password);
+    // //await dashboardPage.
+    // await dashboardPage.testDashboard();
+    // await cartPage.testCartPage();
+    // await ordersHistoryPage.testOrdersHistory();
+    // await ordersReviewPage.testOrdersReviewPage();
     // const value = await dashboardPage.getValue("sumit");
     // console.log(value);
 
