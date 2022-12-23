@@ -1,7 +1,7 @@
 import { request } from "@playwright/test";
 import test, { expect } from "../base_fwk/fixtures/baseTest"
 
-test.describe('API test', () => {
+test.describe('API CRUD operations examples', () => {
   
   test("Post reqres=", async ({ request, page }) => {
     const createUser = await request.post("https://reqres.in/api/users", {
@@ -34,7 +34,3 @@ test.describe('API test', () => {
   })
 
 });
-
-
-
-// });

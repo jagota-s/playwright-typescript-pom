@@ -1,7 +1,7 @@
 
 export const locators = {
-    userName: "#login",
-    password: "#userEmail",
+    userName: "#userEmail",
+    password: "#userPassword",
     signInbutton: "#login"
 
 }
