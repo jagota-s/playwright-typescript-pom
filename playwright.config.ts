@@ -35,7 +35,7 @@ const config: PlaywrightTestConfig = {
   reporter: [
     ['dot'],
     ['html'],
-    ['allure-playwright', { outputFolder: 'allure-results' }]
+    //['allure-playwright', { outputFolder: 'allure-results' }]
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
@@ -67,7 +67,7 @@ const config: PlaywrightTestConfig = {
       name: 'chromium',
       use: {
         ...devices['Desktop Chrome'],
-        screenshot: 'only-on-failure',
+        screenshot: 'on',
         trace: 'on',
 
       },

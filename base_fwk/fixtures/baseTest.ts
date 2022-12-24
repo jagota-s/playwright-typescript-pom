@@ -59,11 +59,11 @@ const test = baseTest.extend<PageObjects>({
 // hooks as fixtures
 // let authenticatedPage: Page;
 test.beforeEach(async ({ browser }) => {
-    console.log('beforeEach tests');
+   // console.log('beforeEach tests');
 });
 
 test.afterEach(async ({ }) => {
-    console.log('afterEach tests');
+   // console.log('afterEach tests');
 });
 
 // export default and name export so spec files can use it 

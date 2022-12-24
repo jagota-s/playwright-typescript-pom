@@ -2,7 +2,7 @@ import { expect, Page, } from "@playwright/test";
 import { CommonPage } from "../../base_fwk/common/CommonPage";
 import { CommonScenario } from "../../base_fwk/common/CommonScenario";
 import test from "../../base_fwk/fixtures/baseTest"
-import { testConfig } from "../../tests/testConfig";
+import { testData } from "../../tests/testData";
 import { locators } from "../LoginPage/LoginPageLocators";
 
 export class LoginPage extends CommonPage {
@@ -16,7 +16,7 @@ export class LoginPage extends CommonPage {
     this.scenario = scenario;
   }
   async goTo() {
-    await this.page.goto(testConfig.qa);
+    await this.page.goto(testData.qa);
     await this.page.waitForLoadState("networkidle");
     await this.setValue("1A", "AC");
   }

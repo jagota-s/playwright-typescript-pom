@@ -1,7 +1,7 @@
 import test, { expect } from "../base_fwk/fixtures/baseTest"
 import { OrdersReviewPage } from "../pageObjects/OrdersReviewPage/OrdersReviewPage";
 //import { POManager } from "../pageObjects/POManager"
-import { testConfig } from "./testConfig";
+import { testData } from "./testData";
 //import { expect } from "@playwright/test"
 //import { test, expect, type Page } from '@playwright/test';
 
@@ -27,7 +27,7 @@ test.describe('two tests', () => {
     })
 
     await loginPage.goTo();
-    await loginPage.validLogin(testConfig.username, testConfig.password);
+    await loginPage.validLogin(testData.username, testData.password);
     await page.waitForResponse("https://rahulshettyacademy.com/api/ecom/product/get-all-products");
 
 

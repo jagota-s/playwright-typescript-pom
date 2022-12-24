@@ -1,4 +1,4 @@
-export const testConfig = {
+export const testData = {
     qa: `https://rahulshettyacademy.com/client`,
     dev: ``,
     qaApi: `https://reqres.in`,

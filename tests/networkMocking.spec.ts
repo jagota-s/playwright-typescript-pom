@@ -1,5 +1,5 @@
 import test, { expect } from "../base_fwk/fixtures/baseTest"
-import { testConfig } from "./testConfig";
+import { testData } from "./testData";
 
 test.describe('Network mocking examples', () => {
     test("Modify API responses", async ({ page, request, loginPage }) => {
@@ -12,7 +12,7 @@ test.describe('Network mocking examples', () => {
             await route.fulfill({ response, json });
         })
         await loginPage.goTo();
-        await loginPage.validLogin(testConfig.username, testConfig.password);
+        await loginPage.validLogin(testData.username, testData.password);
         await page.waitForResponse("https://rahulshettyacademy.com/api/ecom/product/get-all-products");
     })
 
