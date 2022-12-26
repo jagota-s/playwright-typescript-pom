@@ -22,7 +22,6 @@ export class OrdersReviewPage extends CommonPage {
                 break;
             }
         }
-
     }
 
     async VerifyEmailId(username) {
@@ -32,12 +31,7 @@ export class OrdersReviewPage extends CommonPage {
     async SubmitAndGetOrderId() {
         await this.page.locator(locators.submit).click();
         await expect(await this.page.locator(locators.orderConfirmationText)).toHaveText(" Thankyou for the order. ");
-        return await this.page.locator(locators.orderId).textContent();
+        const orderID = await this.page.locator(locators.orderId).textContent();
+        this.setValue("orderId", orderID!);
     }
-
-    async testOrdersReviewPage() {
-        console.log("in OrdersReviewPage page");
-        console.log(this.scenario.getValue("1A"));
-    }
-
 }

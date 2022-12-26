@@ -1,4 +1,4 @@
-import { Page } from "@playwright/test";
+import { expect, Page } from "@playwright/test";
 import { CommonPage } from "../../base_fwk/common/CommonPage";
 import { CommonScenario } from "../../base_fwk/common/CommonScenario";
 import { locators } from "./DashBoardLocators";
@@ -10,16 +10,13 @@ export class DashboardPage extends CommonPage {
         this.scenario = scenario;
     }
 
-    async searchProductAddCart(productName) {
-        const titles = await this.page.locator(locators.productsText).allTextContents();
-        console.log(titles);
-        const count = await this.page.locator(locators.products).count();
-        for (let i = 0; i < count; ++i) {
-            if (await this.page.locator(locators.productsText).nth(i).textContent() === productName) {
-                //add to cart
-                await this.page.locator(locators.products).nth(i).locator("text= Add To Cart").click();
-                break;
-            }
+    async searchProductAddCart(productName, testInfo) {
+        const product = await this.page.locator(locators.products, { hasText: productName });
+        const addCartButton = await product.locator("button", { hasText: " Add To Cart" });
+        const cartButtonVisible = await addCartButton.isVisible();
+        expect(addCartButton, "Add cart button is visible").toBeTruthy();
+        if (cartButtonVisible) {
+            await addCartButton.click();
         }
     }
 
@@ -30,12 +27,6 @@ export class DashboardPage extends CommonPage {
 
     async navigateToCart() {
         await this.page.locator(locators.cart).click();
+        await this.page.waitForLoadState("networkidle");
     }
-
-    async testDashboard() {
-        console.log("in dashboard page");
-        // console.log(CommonPage.getValue("amadeus"))
-        console.log(this.scenario.getValue("1A"));
-    }
-
 }

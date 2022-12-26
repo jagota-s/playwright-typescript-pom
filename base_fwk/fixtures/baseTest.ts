@@ -20,8 +20,8 @@ interface PageObjects {
 // intializing all the page objects you have in your app
 // and import them as fixture in spec file
 const test = baseTest.extend<PageObjects>({
-    commonScenarioPage: async ({ page }, use) => {
-        await use(new CommonScenario(page));
+    commonScenarioPage: async ({ page }, use, testinfo) => {
+        await use(new CommonScenario(page, testinfo));
     },
     loginPage: async ({ page, commonScenarioPage }, use) => {
         await use(new LoginPage(page, commonScenarioPage));

@@ -3,13 +3,8 @@ import { CommonScenario } from "./CommonScenario";
 
 
 export class CommonPage {
-    page: Page;
-    scenario: CommonScenario;
     private dataMap = new Map();
-
-    constructor(page, scenario) {
-        this.page = page;
-        this.scenario = scenario;
+    constructor(public page: Page, readonly scenario: CommonScenario) {
     }
 
     public getValue(key: string) {
@@ -19,5 +14,9 @@ export class CommonPage {
 
     public setValue(key: string, value: string) {
         this.scenario.setValue(key, value);
+    }
+
+    async takeScreenshot(name: string) {
+        await this.scenario.takeScreenshot(name);
     }
 }

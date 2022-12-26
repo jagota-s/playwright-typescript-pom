@@ -1,9 +1,10 @@
 
 export const locators = {
-    userName: "#login",
-    password: "#userEmail",
-    signInbutton: "#login"
-
+    cartProducts: "div li",
+    productsText: ".card-body b",
+    cart: "[routerlink*='cart']",
+    orders : "button[routerlink*='myorders']",
+    checkout: "text=Checkout",
 }
 
 

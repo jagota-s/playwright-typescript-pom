@@ -1,11 +1,16 @@
-import { test, expect, Page } from "@playwright/test";
+import { test, expect, Page, TestInfo } from "@playwright/test";
 export class CommonScenario {
-    readonly page: Page;
-
     private myMap = new Map<string, string>();
-    constructor(page) {
-        this.page = page;
-        console.log("in common scenario constructor")
+    constructor(public page:Page, public testinfo: TestInfo) {
+    }
+
+    async takeScreenshot(name: string) {
+        this.testinfo.attach(`${this.testinfo.title}_${name} `, {
+            contentType: "image/png",
+            body: await this.page.screenshot({
+                fullPage: true
+            })
+        });
     }
 
 
