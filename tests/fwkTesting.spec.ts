@@ -16,15 +16,15 @@ test.describe('two tests', () => {
 
 
 
-    await page.route("https://rahulshettyacademy.com/api/ecom/product/get-all-products", async (route) => {
-      //console.log("<<"  + route.request().postData())
-      const response = await route.fetch();
-      const json = await response.json();
-      json.data[0].productName = "supermannnnnn";
-      json.data[1].productName = "batmann";
+    // await page.route("https://rahulshettyacademy.com/api/ecom/product/get-all-products", async (route) => {
+    //   //console.log("<<"  + route.request().postData())
+    //   const response = await route.fetch();
+    //   const json = await response.json();
+    //   json.data[0].productName = "supermannnnnn";
+    //   json.data[1].productName = "batmann";
 
-      await route.fulfill({ response, json });
-    })
+    //   await route.fulfill({ response, json });
+    // })
 
     await loginPage.goTo();
     await loginPage.validLogin(testData.username, testData.password);
