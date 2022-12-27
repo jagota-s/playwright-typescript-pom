@@ -9,7 +9,6 @@ test.describe('two tests', () => {
   console.log("in describe from spec file");
   test("first playwright test12", async ({ page, context, browser, loginPage, dashboardPage, cartPage, ordersReviewPage, ordersHistoryPage }) => {
     // test("first playwright test12", async ({ }) => {
-    test.setTimeout(120000);
     // test("first playwright test12", async ({ page }) => {
     console.log("test start")
     // await page.goto('https://example.com');
@@ -27,8 +26,8 @@ test.describe('two tests', () => {
     // })
 
     await loginPage.goTo();
-    await loginPage.validLogin(testData.username, testData.password);
-    await page.waitForResponse("https://rahulshettyacademy.com/api/ecom/product/get-all-products");
+   // await loginPage.validLogin(testData.username, testData.password);
+   // await page.waitForResponse("https://rahulshettyacademy.com/api/ecom/product/get-all-products");
 
 
     console.log("test ends")
