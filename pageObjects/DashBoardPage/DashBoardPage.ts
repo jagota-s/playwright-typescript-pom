@@ -22,11 +22,13 @@ export class DashboardPage extends CommonPage {
 
     async navigateToOrders() {
         await this.page.locator(locators.orders).click();
+        await this.page.waitForLoadState("networkidle");
     }
 
 
     async navigateToCart() {
         await this.page.locator(locators.cart).click();
         await this.page.waitForLoadState("networkidle");
+        await this.page.waitForLoadState("domcontentloaded");
     }
 }

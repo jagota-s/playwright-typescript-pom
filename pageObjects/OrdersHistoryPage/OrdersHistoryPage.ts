@@ -1,4 +1,4 @@
-import { Page } from "@playwright/test";
+import { expect, Page } from "@playwright/test";
 import { CommonPage } from "../../base_fwk/common/CommonPage";
 import { CommonScenario } from "../../base_fwk/common/CommonScenario";
 import { locators } from "./OrdersHistoryPageLocators";
@@ -7,15 +7,19 @@ export class OrdersHistoryPage extends CommonPage {
     constructor(public page: Page, public scenario: CommonScenario) {
         super(page, scenario);
     }
+
     async searchOrderAndSelect() {
-        const orderId = this.getValue("orderId");
+        let orderFound = false;
+        await this.page.waitForSelector('tbody');
         for (const row of await this.page.locator(locators.rows).all()) {
-            if ((await row.locator("th").textContent())?.includes(orderId!)) {
-                this.page.locator(locators.BTN_View).click();
-                console.log("last element" + await row.locator("th").textContent())
+            const matchrowOrderId = await row.locator("th").textContent();
+            if (this.getValue("orderId")!.includes(matchrowOrderId!)) {
+                await row.locator(locators.BTN_View).click();
+                orderFound = true;
                 break;
             }
         }
+        expect(orderFound).toBeTruthy();
         this.takeScreenshot("Orders page");
     }
 
