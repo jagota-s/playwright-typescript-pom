@@ -1,3 +1,4 @@
+import AxeBuilder from "@axe-core/playwright";
 import { test, expect, Page, TestInfo } from "@playwright/test";
 export class CommonScenario {
     private myMap = new Map<string, string>();
@@ -25,5 +26,15 @@ export class CommonScenario {
 
     getValue(key: string) {
         return this.myMap.get(key);
+    }
+
+    async a11yAnalysis() {
+        const accessibilityScanResults = await new AxeBuilder({ page: this.page }).analyze(); // 4
+        const issues = accessibilityScanResults.violations.length;
+        console.log("a11y issues found: " + issues);
+        await this.testinfo.attach('accessibility-scan-results', {
+            body: JSON.stringify(accessibilityScanResults, null, 2),
+            contentType: 'application/json'
+        });
     }
 }

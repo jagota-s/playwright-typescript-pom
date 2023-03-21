@@ -6,10 +6,8 @@ import { locators } from "./DashBoardLocators";
 export class DashboardPage extends CommonPage {
     constructor(public page: Page, readonly scenario: CommonScenario) {
         super(page, scenario);
-        this.page = page;
-        this.scenario = scenario;
     }
-
+ 
     async searchProductAddCart(productName, testInfo) {
         const product = await this.page.locator(locators.products, { hasText: productName });
         const addCartButton = await product.locator("button", { hasText: " Add To Cart" });

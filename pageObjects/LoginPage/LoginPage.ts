@@ -1,3 +1,4 @@
+import AxeBuilder from "@axe-core/playwright";
 import { expect, Page, } from "@playwright/test";
 import { CommonPage } from "../../base_fwk/common/CommonPage";
 import { CommonScenario } from "../../base_fwk/common/CommonScenario";
@@ -12,6 +13,7 @@ export class LoginPage extends CommonPage {
   async goTo() {
     await this.page.goto(testData.qa);
     await this.page.waitForLoadState("domcontentloaded");
+    await this.scenario.a11yAnalysis();
   }
 
   async validLogin(username, password) {
