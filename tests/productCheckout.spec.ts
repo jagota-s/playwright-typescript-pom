@@ -7,7 +7,7 @@ test.describe('E2E test flows', () => {
     await loginPage.goTo();
     await loginPage.validLogin(testData.username, testData.password);
 
-    await dashboardPage.searchProductAddCart("Zara Coat 3", testinfo);
+    await dashboardPage.searchProductAddCart("Zara Coat 3");
     await dashboardPage.navigateToCart();
 
     await cartPage.verifyProductIsDisplayed("Zara Coat 3");

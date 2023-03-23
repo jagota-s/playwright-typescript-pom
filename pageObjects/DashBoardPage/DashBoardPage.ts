@@ -7,9 +7,10 @@ export class DashboardPage extends CommonPage {
     constructor(public page: Page, readonly scenario: CommonScenario) {
         super(page, scenario);
     }
- 
-    async searchProductAddCart(productName, testInfo) {
+
+    async searchProductAddCart(productName) {
         const product = await this.page.locator(locators.products, { hasText: productName });
+        await product.waitFor({ state: "visible" });
         const addCartButton = await product.locator("button", { hasText: " Add To Cart" });
         const cartButtonVisible = await addCartButton.isVisible();
         expect(addCartButton, "Add cart button is visible").toBeTruthy();
