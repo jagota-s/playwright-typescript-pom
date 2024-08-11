@@ -1,5 +1,4 @@
-import type { PlaywrightTestConfig } from '@playwright/test';
-import { devices } from '@playwright/test';
+import { defineConfig, devices } from '@playwright/test';
 
 /**
  * Read environment variables from file.
@@ -10,7 +9,7 @@ import { devices } from '@playwright/test';
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
-const config: PlaywrightTestConfig = {
+export default defineConfig({ 
   testDir: './tests',
   /* Maximum time one test can run for. */
   timeout: 20 * 1000,
@@ -19,7 +18,7 @@ const config: PlaywrightTestConfig = {
      * Maximum time expect() should wait for the condition to be met.
      * For example in `await expect(locator).toHaveText();`
      */
-    timeout: 5000
+    timeout: 5000,
   },
 
   /* Run tests in files in parallel */
@@ -40,7 +39,7 @@ const config: PlaywrightTestConfig = {
   use: {
     viewport: null,
     // extraHTTPHeaders: {
-    //   "Authorozation" : "Basic"
+    //   "Authorization" : "Basic"
     // },
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
     actionTimeout: 0,
@@ -52,8 +51,8 @@ const config: PlaywrightTestConfig = {
     video: 'retry-with-video',
     launchOptions: {
       headless: true,
-      args: ["--start-maximized"]
-    }
+      args: ["--start-maximized"],
+    },
     // httpCredentials: {
     //   username: 'bill',
     //   password: 'pa55w0rd',
@@ -68,7 +67,6 @@ const config: PlaywrightTestConfig = {
         ...devices['Desktop Chrome'],
         screenshot: 'on',
         trace: 'on',
-
       },
     },
 
@@ -108,7 +106,6 @@ const config: PlaywrightTestConfig = {
     //   },
     // },
     // {
-    // {
     //   name: 'Google Chrome',
     //   use: {
     //     channel: 'chrome',
@@ -124,6 +121,5 @@ const config: PlaywrightTestConfig = {
   //   command: 'npm run start',
   //   port: 3000,
   // },
-};
+});
 
-export default config;

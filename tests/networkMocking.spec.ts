@@ -13,7 +13,8 @@ test.describe('Network mocking examples', () => {
         })
         await loginPage.goTo();
         await loginPage.validLogin(testData.username, testData.password);
-        await page.waitForResponse("https://rahulshettyacademy.com/api/ecom/product/get-all-products");
+        // await page.waitForResponse("https://rahulshettyacademy.com/api/ecom/product/get-all-products");
+       await page.close();
     })
 
 });
