@@ -62,8 +62,8 @@ test.beforeEach(async ({ browser }) => {
    // console.log('beforeEach tests');
 });
 
-test.afterEach(async ({ }) => {
-   // console.log('afterEach tests');
+test.afterEach(async ({ page}) => {
+   await page.close();
 });
 
 // export default and name export so spec files can use it 
