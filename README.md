@@ -43,6 +43,11 @@ npm run open:allure-report
 ```
 
 ## Docker 
+- Directly use docker compose file with below command
+````bash
+docker-compose -f docker-compose.yml up
+````
+OR use below
 - To run tests in docker containers, install docker and use the below commands to compose the docker image from the docker file;
 ```bash
 docker build -t {give image name} .   
